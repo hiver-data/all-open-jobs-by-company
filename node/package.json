@@ -1,0 +1,11 @@
+{
+  "name": "company-jobs-to-csv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Every open job for a list of companies to one CSV via the hiver/all-open-jobs-by-company Apify Actor",
+  "type": "module",
+  "engines": { "node": ">=18.3" },
+  "scripts": { "start": "node jobs-to-csv.mjs" },
+  "dependencies": { "apify-client": "^2.25.0" },
+  "license": "MIT"
+}
