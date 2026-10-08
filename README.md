@@ -11,7 +11,7 @@ spotify,lever,Android Engineer - Experience,London,hybrid,false,Engineering,Perm
 nvidia,workday,Senior Software Engineer - Simulation,"US, CA, Santa Clara",,,,Full time,2026-10-07T00:00:00Z,...
 ```
 
-![Company names in, every open job out: real output rows from a run on 2026-10-09](media/jobs-by-company/readme.gif)
+![Company names in, every open job out: real output rows from a test run on 2026-10-08](media/jobs-by-company/readme.gif)
 
 [Watch the 1-minute walkthrough (MP4, 1080p)](media/jobs-by-company/walkthrough.mp4)
 
