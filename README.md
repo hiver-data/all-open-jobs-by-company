@@ -11,6 +11,10 @@ spotify,lever,Android Engineer - Experience,London,hybrid,false,Engineering,Perm
 nvidia,workday,Senior Software Engineer - Simulation,"US, CA, Santa Clara",,,,Full time,2026-10-07T00:00:00Z,...
 ```
 
+![Company names in, every open job out: real output rows from a run on 2026-10-09](media/jobs-by-company/readme.gif)
+
+[Watch the 1-minute walkthrough (MP4, 1080p)](media/jobs-by-company/walkthrough.mp4)
+
 ## Run it
 
 You need an Apify account (the free plan includes $5 of usage a month) and its API token from Apify Console > Settings > API & Integrations.
@@ -47,14 +51,15 @@ $1.50 per 1,000 jobs on the free plan (less on higher Apify plans), plus Apify's
 
 ## What we measured
 
-Our test bench (2026-10-07, build 0.2.2) ran this Actor and the three other Apify Store Actors that also take company names or websites on the same six companies: Stripe, Ramp and Spotify in one case, NVIDIA, Salesforce and Airbnb by name only in a second. Every answer was checked against the company's real board, read from that board's public API.
+Our test bench (2026-10-08, build 0.3.1) ran this Actor and the three other Apify Store Actors that also take company names or websites on the same six companies: Stripe, Ramp and Spotify in one case, NVIDIA, Salesforce and Airbnb by name only in a second. Every answer was checked against the company's real board, read from that board's public API.
 
 | | This Actor | Best alternative |
 |---|---|---|
-| Test cases that returned the companies' jobs | 2 of 2 | 1 of 2 |
-| Checks passed (job URL on the company's real board, job system named correctly) | 11 of 11 (100%) | 55% |
-| Job fields filled | 95% | 86% |
-| Price per 1,000 jobs in these runs | $1.51 | $2.01 and $3.01 |
+| Checks passed (job URL on the company's real board, job system named correctly) | 11 of 11 (100%) | 9 of 11 (82%) |
+| Same checks, companies entered by name only | 5 of 5 | 3 of 5 |
+| Test cases that returned the companies' jobs | 2 of 2 | 2 of 2 (the other two: 1 of 2 and 0 of 2) |
+| Job fields filled | 95% | 93% |
+| Price per 1,000 jobs in these runs | $1.51 | $2.01 and $2.41 |
 
 "Best alternative" is the best of the three other Actors on each row. Six companies is a small sample. The bench runs again after every new build.
 
