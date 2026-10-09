@@ -51,17 +51,18 @@ $1.50 per 1,000 jobs on the free plan (less on higher Apify plans), plus Apify's
 
 ## What we measured
 
-Our test bench (2026-10-08, build 0.3.1) ran this Actor and the three other Apify Store Actors that also take company names or websites on the same six companies: Stripe, Ramp and Spotify in one case, NVIDIA, Salesforce and Airbnb by name only in a second. Every answer was checked against the company's real board, read from that board's public API.
+Our test bench (2026-10-09, build 0.3.13) ran this Actor and the two other Apify Store Actors that take company names or websites and find each company's job board themselves, on the same three jobs: Stripe, Ramp and Spotify in one case; NVIDIA, Salesforce and Airbnb by name only in a second; one Stripe job and one NVIDIA job whose pay range appears only in the posting text in a third. Every answer was checked against the company's real board, read from that board's public API.
 
 | | This Actor | Best alternative |
 |---|---|---|
-| Checks passed (job URL on the company's real board, job system named correctly) | 11 of 11 (100%) | 9 of 11 (82%) |
+| Checks passed (job URL on the company's real board, job system named correctly, pay range) | 15 of 15 (100%) | 9 of 15 (60%) |
 | Same checks, companies entered by name only | 5 of 5 | 3 of 5 |
-| Test cases that returned the companies' jobs | 2 of 2 | 2 of 2 (the other two: 1 of 2 and 0 of 2) |
-| Job fields filled | 95% | 93% |
-| Price per 1,000 jobs in these runs | $1.51 | $2.01 and $2.41 |
+| Pay range read from the posting text (one Stripe job, one NVIDIA job) | 2 of 2 | 0 of 2 |
+| Test cases that returned the companies' jobs | 3 of 3 | 2 of 3 (the other: 1 of 3) |
+| Job fields filled (company, title, URL, location, date, department, source, pay) | 87% | 76% |
+| Price per 1,000 jobs in these runs | $1.51 | $2.01 and $2.28 |
 
-"Best alternative" is the best of the three other Actors on each row. Six companies is a small sample. The bench runs again after every new build.
+"Best alternative" is the better of the two other Actors on each row. One of the other two finishes much faster (2.7 s vs 17.6 s per test case). Six companies is a small sample, and the bench runs again after every new build.
 
 ## Monitoring
 
