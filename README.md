@@ -47,22 +47,21 @@ No code: open the [Actor page](https://apify.com/hiver/all-open-jobs-by-company?
 
 ## What it costs
 
-$1.50 per 1,000 jobs on the free plan (less on higher Apify plans), plus Apify's $0.00005 start fee per run. Companies that are not found or have no open jobs cost nothing.
+$0.03 per company for all its open jobs up to 1,000, on Apify's free plan (less on higher plans). A company with fewer than 20 jobs in a run costs $0.0015 per job instead, and each further 1,000 jobs of one company costs $0.01. Companies that are not found or have no open jobs cost nothing. Apify adds $0.00005 to start each run. The scripts cap a run at 500 jobs by default (`--max-jobs`); raise it to get every job, the company price stays the same.
 
 ## What we measured
 
-Our test bench (2026-10-09, build 0.3.13) ran this Actor and the two other Apify Store Actors that take company names or websites and find each company's job board themselves, on the same three jobs: Stripe, Ramp and Spotify in one case; NVIDIA, Salesforce and Airbnb by name only in a second; one Stripe job and one NVIDIA job whose pay range appears only in the posting text in a third. Every answer was checked against the company's real board, read from that board's public API.
+Our test bench (2026-10-10, build 0.3.22) ran this Actor against two other Store Actors that take company names or websites and find each company's job board themselves (the most-used Actor of this kind today, with 40 monthly users on 2026-10-13, was not in this bench). All three got the same four test cases, 11 companies: Stripe, Ramp and Spotify (websites and names mixed); NVIDIA, Salesforce and Airbnb by name only; one Stripe job and one NVIDIA job whose pay range appears only in the posting text; and Casey's, Kroger, Home Depot, Walgreens and Compass Group by name only. Every answer was checked against each company's real job board, read from the board's public API.
 
 | | This Actor | Best alternative |
 |---|---|---|
-| Checks passed (job URL on the company's real board, job system named correctly, pay range) | 15 of 15 (100%) | 9 of 15 (60%) |
-| Same checks, companies entered by name only | 5 of 5 | 3 of 5 |
+| Checks passed (job URL on the company's real board, job system named correctly, pay range) | 22 of 22 (100%) | 15 of 22 (68%) |
+| Same checks, companies entered by name only (8 companies) | 12 of 12 | 9 of 12 |
 | Pay range read from the posting text (one Stripe job, one NVIDIA job) | 2 of 2 | 0 of 2 |
-| Test cases that returned the companies' jobs | 3 of 3 | 2 of 3 (the other: 1 of 3) |
-| Job fields filled (company, title, URL, location, date, department, source, pay) | 87% | 76% |
-| Price per 1,000 jobs in these runs | $1.51 | $2.01 and $2.28 |
+| Test cases that returned the companies' jobs | 4 of 4 | 3 of 4 (the other: 1 of 4) |
+| Job fields filled (company, title, URL, location, date, department, source, pay) | 88% | 58% |
 
-"Best alternative" is the better of the two other Actors on each row. One of the other two finishes much faster (2.7 s vs 17.6 s per test case). Six companies is a small sample, and the bench runs again after every new build.
+"Best alternative" is the better of the two other Actors on each row. Both finish faster (3.3 s and 19.3 s per test case on average, vs 39.5 s). Eleven companies is a small sample, and the bench runs again after every new build.
 
 ## Monitoring
 
