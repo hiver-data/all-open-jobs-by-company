@@ -61,7 +61,7 @@ Our test bench (2026-10-10, build 0.3.22) ran this Actor against two other Store
 | Test cases that returned the companies' jobs | 4 of 4 | 3 of 4 (the other: 1 of 4) |
 | Job fields filled (company, title, URL, location, date, department, source, pay) | 88% | 58% |
 
-"Best alternative" is the better of the two other Actors on each row. Both finish faster (3.3 s and 19.3 s per test case on average, vs 39.5 s). Eleven companies is a small sample, and the bench runs again after every new build.
+"Best alternative" is the better of the two other Actors on each row. Both finish faster (3.3 s and 19.3 s per test case on average, vs 39.5 s). Eleven companies is a small sample; later builds have not been benched again yet.
 
 ## Monitoring
 
